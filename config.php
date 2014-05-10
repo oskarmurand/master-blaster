@@ -5,6 +5,7 @@ define("DB_DSN", "mysql:host=mysql.planet.ee;dbname=erikweb");
 define("DB_USERNAME", "erikweb");
 define("DB_PASSWORD", "fepproject123");
 define("TEMPLATE_PATH", "templates");
+define("CLASS_PATH", "classes");
 define("ADMIN_USERNAME", "admin");
 define("ADMIN_PASSWORD", "admin");
 define("QUERY_STRING", '?'.$_SERVER['QUERY_STRING']);
