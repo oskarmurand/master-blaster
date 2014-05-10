@@ -1,4 +1,7 @@
-
+<?php
+	require("config.php");
+	require("functions.php");
+?>
 <!doctype html>
 <html lang="en">
 <head>

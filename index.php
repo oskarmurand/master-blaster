@@ -1,13 +1,27 @@
-<?php require_once('header.php'); ?>
-	
-	<pre>
-		<?
-		$path = realpath('/www/data01/users/e/erikweb.planet.ee/htdocs/');
-		foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path)) as $filename) {
-        	echo "$filename".PHP_EOL;
-		}
-		?>
-	</pre>
+<?php 
+	ob_start();
+	require('config.php');
 
-<?php require_once('footer.php'); ?>
+	$action = isset($_GET['action']) ? $_GET['action'] : "";
+	switch ($action) {
+	  case 'login':
+	    login();
+	    break;
+	  default:
+	    homepage();
+	}
+
+	function login(){
+		$results = array();
+  		$results['pageTitle'] = "Login";
+  		require(TEMPLATE_PATH."/login.php");
+	}
+
+	function homepage(){
+		$results = array();
+  		$results['pageTitle'] = "Filebrowser";
+  		require(TEMPLATE_PATH."/home.php");
+	}
+
+?>
 	
