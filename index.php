@@ -1,19 +1,13 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>FILE BROWSER</title>
-</head>
-<body>
+<?php require_once('header.php'); ?>
 	
-		<pre>
-	<?
+	<pre>
+		<?
 		$path = realpath('/www/data01/users/e/erikweb.planet.ee/htdocs/');
 		foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path)) as $filename) {
-        	echo "<li>$filename</li>";
+        	echo "$filename".PHP_EOL;
 		}
-	?>
-		</pre>
+		?>
+	</pre>
+
+<?php require_once('footer.php'); ?>
 	
-</body>
-</html>
