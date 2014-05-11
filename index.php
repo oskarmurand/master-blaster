@@ -1,8 +1,8 @@
 <?php 
-	ob_start();
 	require_once('config.php');
-
+	session_start();
 	$action = isset($_GET['action']) ? $_GET['action'] : "";
+
 	switch ($action) {
 	  case 'login':
 	    login();
@@ -18,9 +18,14 @@
 	}
 
 	function homepage(){
-		$results = array();
-  		$results['pageTitle'] = "Filebrowser";
-  		require(TEMPLATE_PATH."/home.php");
+		if(!isset($_SESSION['user'])){
+			header('Location: login.php');
+			exit();
+		} else {
+			$results = array();
+	  		$results['pageTitle'] = "Filebrowser";
+	  		require(TEMPLATE_PATH."/home.php");
+  		}
 	}
 
 ?>
