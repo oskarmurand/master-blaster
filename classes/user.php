@@ -8,10 +8,10 @@ class User {
 
 	public function __construct($data = array()){
 		if (isset($data['username'])){
-			$this->username = stripcslashes(strip_tags($data['username']))
+			$this->username = stripcslashes(strip_tags($data['username']));
 		}
 		if (isset($data['password'])){
-			$this->password = stripcslashes(strip_tags($data['password']))
+			$this->password = stripcslashes(strip_tags($data['password']));
 		}
 	}
 
@@ -22,6 +22,46 @@ class User {
 
 	public function userLogin(){
 		$success = false;
+		
+		try {
+			$con = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
+			$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$sql = "SELECT * FROM fb_users WHERE username = :username AND password = :password LIMIT 1";
+			$stmt = $con->prepare($sql);
+			$stmt->bindValue("username", $this->username, PDO::PARAM_STR);
+			$stmt->bindValue("password", $this->password/*hash("sha256", $this->password . $this->salt)*/, PDO::PARAM_STR);
+			$stmt->execute();
+			$valid = $stmt->fetchColumn();
+
+			if($valid) {
+				$success = true;
+			}
+
+			$con = null;
+			return $success;
+
+		} catch(PDOException $e) {
+			echo $e->getMessage();
+			return $success;
+		}
+	}
+
+	public function newUser(){
+		$correct = false;
+
+		try {
+			$con = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
+			$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$sql = "INSERT INTO fb_users(username, email, password) VALUES(:username, :email, :password)";
+			$stmt = $con->prepare($sql);
+			$stmt->bindValue("username", $this->username, PDO::PARAM_STR);
+			$stmt->bindValue("email", $this->email, PDO::PARAM_STR);
+			$stmt->bindValue("password", $this->password/*hash("sha256", $this->password . $this->salt)*/, PDO::PARAM_STR);
+			$stmt->execute();
+			  return "New user registered successfully!";
+		} catch(PDOException $e){
+			return $e->getMessage();
+		}
 	}
 }
 

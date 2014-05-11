@@ -1,6 +1,6 @@
 <?php 
 	ob_start();
-	require('config.php');
+	require_once('config.php');
 
 	$action = isset($_GET['action']) ? $_GET['action'] : "";
 	switch ($action) {
@@ -14,7 +14,7 @@
 	function login(){
 		$results = array();
   		$results['pageTitle'] = "Login";
-  		require(TEMPLATE_PATH."/login.php");
+  		require("login.php");
 	}
 
 	function homepage(){

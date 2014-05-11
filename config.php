@@ -11,4 +11,5 @@ define("ADMIN_PASSWORD", "admin");
 define("QUERY_STRING", '?'.$_SERVER['QUERY_STRING']);
 define("BASE_URL", $_SERVER['SERVER_NAME'].'/fep');
 define("FULL_URL", BASE_URL.QUERY_STRING);
+require_once(CLASS_PATH . "/user.php");
 ?>
