@@ -1,14 +1,24 @@
-<?php 
+<?php
 	require_once('config.php');
 	session_start();
+	ob_start();
+	$results = array();
 	$results['pageTitle'] = "Login";
+
+	include_once "templates/includes/header.php";
+
 	$action = isset($_GET['action']) ? $_GET['action'] : "";
 	switch ($action) {
   		case 'login':
     		login();
+    		showForm();
     		break;
     	case 'logout':
 	   		logout();
+	   		showForm();
+	   		break;
+	   	case 'lostpw':
+	   		
 	   		break;
 		default:
 			showForm();
@@ -32,7 +42,7 @@
 	function logout(){
 		if (isset($_SESSION['user'])){
 			unset($_SESSION['user']);
-			header('Location: index.php');
+			header('Location: login.php');
 			exit;
 		} 
 	}
@@ -61,6 +71,11 @@
 						<td>
 							<input type="submit" name="submit" value="Log in">
 						</td>
+						<td>
+						<a href="login.php?action=lostpw">
+							<input type="button" name="lostpw" value="Lost password">
+						</a>
+						</td>
 					</tr>
 				</table>
 			</form>
@@ -70,8 +85,10 @@
 				<table>
 					<tr>
 						<td>
-							Log Out
+							Log Out:
 						</td>
+					</tr>
+					<tr>
 						<td>
 							<input type="submit" name="submit" value="Log out">
 						</td>
@@ -79,8 +96,6 @@
 				</table>
 			</form>
 		<? }
-
-		echo "<pre>";
-		print_r($_SESSION);
-		echo "</pre>";
-	} ?>
+	} 
+?>
+<? include_once "templates/includes/footer.php" ?>

@@ -63,6 +63,10 @@ class User {
 			return $e->getMessage();
 		}
 	}
+
+	public function userInfo(){
+		
+	}
 }
 
 ?>
