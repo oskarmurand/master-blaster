@@ -1,8 +1,9 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
+/*********************************/
+/*
+/*	MEYERWEB'S RESET
+/*  http://meyerweb.com/eric/tools/css/reset/ 
+/*
+/*********************************/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -45,4 +46,343 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+/********************************/
+/*	GLOBAL
+/********************************/
+
+html {
+	font-size: 62.5%;
+	overflow-y: scroll;
+	height: 100%;
+}
+
+body {
+	background: #FFF;
+    background-repeat:repeat-x;
+	font-family: 'Open Sans', sans-serif;
+	min-height: 100%;
+}
+
+/* 
+Borders and padding are drawn inside the set width of the content.
+*/
+*, 
+*:before, 
+*:after {
+	-moz-box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: none;
+	-webkit-box-sizing: border-box;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent; /* For some Androids */
+	box-sizing: border-box;
+	text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, 
+h4, h5, h6 {
+	margin: 0 0 .5em;
+	color: #282828;
+}
+
+/* 
+REM stated font-sizes need to have a fallback to support older browsers (IE8 and below) 
+*/
+h1 {
+	font-size: 30px;
+	font-size: 3rem;
+}
+
+h2 {
+	font-size: 26px;
+	font-size: 2.6rem;
+}
+
+h3 {
+	font-size: 24px;
+	font-size: 2.4rem;
+}
+
+h4 {
+	font-size: 22px;
+	font-size: 2.2rem;
+}
+
+h5 {
+	font-size: 20px;
+	font-size: 2rem;
+}
+
+h6 {
+	font-size: 18px;
+	font-size: 1.8rem;
+}
+
+p, span, a {
+	font-size: 15px;
+	font-size: 1.5rem;
+}
+
+p {
+	line-height: 1.45em;
+	margin: .7em 0;
+}
+
+p img {
+	max-width: 100%;
+}
+
+input, textarea {
+	-moz-appearance:none;
+   	-webkit-appearance:none;
+	display: block;
+	box-shadow: none;
+	border-radius: 0;
+	font-size: 14px;
+	font-size: 1.4rem;
+	outline: none;
+	max-width: 100%;
+	border-radius: 10px;
+}
+
+input[type="button"],
+input[type="submit"] {
+	background-color: #20459C;
+	color: #FFF;
+	cursor: pointer;
+	font-size: 14px;
+	font-size: 1.4rem;
+	height: 3em;
+	margin: .5em 0 0;
+	padding: 0 .3em;
+}
+
+input[type="button"].primary-submit,
+input[type="submit"].primary-submit {
+	background-color: #007aff;
+	border: 1px solid #007aff;
+	color: #FFF;
+}
+
+input[type="button"].secondary-submit,
+input[type="submit"].secondary-submit {
+	background-color: #9e9e9e;
+	border: 1px solid #9e9e9e;
+	color: #FFF;
+}
+
+/** Placeholder stylings **/
+::-webkit-input-placeholder {
+	font-size: 1.2rem;
+}
+
+::-moz-placeholder { 
+	font-size: 1.2rem;
+    opacity: 1;
+}
+
+:-moz-placeholder { 
+	font-size: 1.2rem;
+    opacity: 1;
+}
+
+::-ms-input-placeholder { 
+	font-size: 1.2rem;
+}	/* IE10+ */
+
+hr {
+	height: .18em;
+    border: 0;
+    background-color: #74848D;
+}
+
+/********************************/
+/*	COLUMNS
+/********************************/
+/* 
+GRID for responsive web. Made by Adam Kaplan. Source: http://www.adamkaplan.me/grid/ 
+*/
+.column {
+	float: left;
+	margin-left: 5%;
+}
+
+.column.no-margin,
+.column:first-child {
+	margin-left: 0;
+}
+
+.column.full {
+	width: 100%;
+}
+
+.column.three-fourths{
+	width: 73.75%;
+}
+  
+.column.two-thirds {
+	width: 65%;
+}
+  
+.column.half {
+	width: 47.5%;
+}
+ 
+.column.one-third {
+	width: 30%;
+}
+ 
+.column.one-fourth {
+	width: 21.25%;
+}
+
+.column.auto {
+	width: auto;
+}
+
+.column.flow-opposite { 
+	float: right;
+}
+
+
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+ 
+.clearfix:after {
+	clear: both;
+}
+ 
+.clearfix {
+	*zoom: 1;
+}
+
+.row {
+	overflow: hidden;
+}
+
+@media screen and (max-width: 860px) {
+	.column.full,
+	.column.three-fourths,
+	.column.two-thirds,
+	.column.half,
+	.column.one-third,
+	.column.one-fourth,
+	.column.auto {
+		float: none;
+		margin: 0;
+		width: 100%;
+	}
+}
+/********************************/
+/*	GLOBAL CLASSES
+/********************************/
+p.center {
+	display: block;
+	text-align: center;
+}
+
+p.success_message {
+	color: #8dc444;
+}
+
+p.error_message {
+	color: #FF1300;
+}
+
+p.warning_message {
+	color: #FFCC00;
+}
+/********************************/
+/*	LOGIN-PAGE
+/********************************/
+body.login {
+	background-image: url('../images/login-bg.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+.login-page-container {
+	position:absolute; 
+	top: 50%;
+	left: 50%;
+	height: 400px; 
+	width: 350px;
+	margin-top: -200px;
+	margin-left: -175px;
+}
+
+.login-page-box {
+	background-color: #f9f6f6;
+	padding: 2.5em;
+	-webkit-box-shadow: 0px 0px 20px 0px rgba(64, 21, 0, 0.5);
+	-moz-box-shadow:    0px 0px 20px 0px rgba(64, 21, 0, 0.5);
+	box-shadow:         0px 0px 20px 0px rgba(64, 21, 0, 0.5);
+}
+
+.login-logo img {
+	display: block;
+	margin: 0 auto 1em;
+}
+
+form.login .input {
+	margin: 2em 0 1.5em;
+}
+
+form.login > div.input {
+  position: relative;
+  overflow: hidden;
+}
+
+form.login div.input input {
+  width: 100%;
+  border: 2px solid #9e9e9e;
+  background: none;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  padding: 8px 12px;
+  outline: 0;
+}
+
+form.login div.input input:valid {
+  background: #FFF;
+}
+
+form.login div.input input:focus {
+  border-color: #007aff;
+}
+
+form.login div.input input:focus + label{
+  background: #007aff;
+  color: #FFF;
+  font-size: 12px;
+  font-size: 1.2rem;
+  z-index: 2;
+  text-transform: uppercase;
+  right: 0;
+  margin-right: 0;
+  width: 33%;
+  border-radius: 0 10px 10px 0;
+}
+
+form.login div.input label {
+  transition: background 0.25s, top 0.25s, bottom 0.25s, right 0.25s, left 0.25s;
+  position: absolute;
+  color: #999;
+  font-size: 14px;
+  font-size: 1.4rem;
+  padding-left: .9em;
+  line-height: 3.6rem;
+  top: 2px;
+  right: 100%;
+  width: 100%;
+  margin-right: -100%;
+  bottom: 2px;
+  border-radius: 0 10px 10px 0;
 }

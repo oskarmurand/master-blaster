@@ -19,6 +19,7 @@
 	function homepage(){
 		$results = array();
 	  	$results['pageTitle'] = "Filebrowser";
+	  	$results['bodyClass'] = "filebrowser";
 	  	require(TEMPLATE_PATH."/home.php");
 	}
 

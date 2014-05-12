@@ -29,7 +29,7 @@ class User {
 			$sql = "SELECT * FROM fb_users WHERE username = :username AND password = :password LIMIT 1";
 			$stmt = $con->prepare($sql);
 			$stmt->bindValue("username", $this->username, PDO::PARAM_STR);
-			$stmt->bindValue("password", $this->password/*hash("sha256", $this->password . $this->salt)*/, PDO::PARAM_STR);
+			$stmt->bindValue("password", hash("sha256", $this->password . $this->salt), PDO::PARAM_STR);
 			$stmt->execute();
 			$valid = $stmt->fetchColumn();
 
@@ -56,7 +56,7 @@ class User {
 			$stmt = $con->prepare($sql);
 			$stmt->bindValue("username", $this->username, PDO::PARAM_STR);
 			$stmt->bindValue("email", $this->email, PDO::PARAM_STR);
-			$stmt->bindValue("password", $this->password/*hash("sha256", $this->password . $this->salt)*/, PDO::PARAM_STR);
+			$stmt->bindValue("password", hash("sha256", $this->password . $this->salt), PDO::PARAM_STR);
 			$stmt->execute();
 			  return "New user registered successfully!";
 		} catch(PDOException $e){

@@ -1,5 +1,6 @@
 <?php
 ini_set("display_errors", true);
+ini_set('session.gc_maxlifetime', 3600);
 date_default_timezone_set("Europe/Copenhagen");  // http://www.php.net/manual/en/timezones.php
 define("DB_DSN", "mysql:host=mysql.planet.ee;dbname=erikweb");
 define("DB_USERNAME", "erikweb");
