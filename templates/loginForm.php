@@ -2,7 +2,9 @@
 	<div class="login-page-container">
 		<div class="login-page-box" class="row clearfix">
 			<div class="login-logo row clearfix">
-				<img src="images/logo.png" alt="Logo description">
+				<a href="http://<?=BASE_URL?>/">
+					<img src="images/logo.png" alt="Logo description">
+				</a>
 			</div>
 			
 
@@ -10,7 +12,9 @@
 				<p class="<?=$results['errorClass'] ?>_message center"><?=$results['errorMessage']?></p>
 			<? } ?>
 
-			<? if (!isset($_SESSION['user'])){ ?>
+			<?// Session::display() ?>
+
+			<? if (!Session::get('user')){ ?>
 				<form id="front-page-login" class="login" action="?action=login" method="post">
 					<div class="input row clearfix">
 						<input type="text" name="username" value="<?=$_POST['username']?>" autocomplete="off" required>
@@ -33,7 +37,7 @@
 						<input type="button" class="secondary-submit column full" value="Log out">
 					</a>
 					<a href="index.php" class="column half">
-						<input type="button" class="primary-submit column full" value="Back to webpage">
+						<input type="button" class="primary-submit column full" value="To webpage">
 					</a>
 				</div>
 			<? } ?>

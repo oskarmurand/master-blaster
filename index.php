@@ -2,7 +2,7 @@
 	require_once('config.php');
 	session_start();
 	
-	if(!isset($_SESSION['user'])){
+	if(!Session::get('user')){
 		header('Location: login.php');
 		exit();
 	}
