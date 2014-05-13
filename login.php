@@ -23,7 +23,7 @@
 	   	case 'mailerror':
 	   		lostPw();
 	   		break;
-   		case 'mailsent':
+   		case 'mailsuccess':
    			lostPw();
    			break;
 		default:
@@ -89,6 +89,16 @@
 			$results['errorMessage'] = "Please insert your email to change your password";
 		}
 
+		if ($_GET['action'] == "mailsuccess") {
+			$results['errorClass'] = "success";
+			$results['errorMessage'] = 'Message has been sent.';
+		}
+
+		if ($_GET['action'] == "mailerror") {
+			$results['errorClass'] = "error";
+			$results['errorMessage'] = 'Message was not sent. Mailer error: '. $mail->ErrorInfo;
+		}
+
 		require(TEMPLATE_PATH . "/lostPassword.php");
 	}
 
@@ -104,20 +114,12 @@
 		$mail->WordWrap = 50;
 
 		if(!$mail->Send()) {
-			$success = 'error';
-			Session::set('error', array(
-				'errorClass' => 'error',
-				'errorMessage' => 'Message was not sent. Mailer error: '. $mail->ErrorInfo
-			));
+			$success = 'mailerror';
 		} else {
-			$success = 'sent';
-			Session::set('error', array(
-				'errorClass' => 'success',
-				'errorMessage' => 'Message has been sent.'
-			));
+			$success = 'mailsuccess';
 		}
 
-		header('Location: login.php?action=mail'.$success);
+		header('Location: login.php?action='.$success);
 		exit;
 	}
 ?>		
