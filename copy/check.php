@@ -43,7 +43,12 @@ $inputdest = 'files/';
         $dest = $inputdest.$src[$i];
         $src = $src[$i];
         xcopy($src, $dest);
-      } else { copy($src[$i], $dest."/".$src[$i]); }
+        echo $src." is folder. and was copied.";
+      } if(is_file($src[$i])) { copy($src[$i], $inputdest.$src[$i]);
+        echo $src[$i]." is file. and was copied.";
+      } else {
+        // w00t?
+      }
   }
 
 
