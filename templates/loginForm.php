@@ -12,7 +12,6 @@
 				<p class="<?=$results['errorClass'] ?>_message center"><?=$results['errorMessage']?></p>
 			<? } ?>
 
-			<?// Session::display() ?>
 
 			<? if (!Session::get('user')){ ?>
 				<form id="front-page-login" class="login" action="?action=login" method="post">
@@ -24,7 +23,7 @@
 						<input type="password" name="password" value="" required>
 						<label for="password">Password</label>
 					</div>
-					<span class="row clearfix">
+					<span class="form-btns row clearfix">
 						<input type="submit" class="primary-submit column half flow-opposite" name="submit" value="Log in">
 						<a href="login.php?action=lostpw" class="column half no-margin">
 							<input type="button" class="secondary-submit column full" name="lostpw" value="Lost password">
@@ -32,7 +31,7 @@
 					</span>
 				</form>
 			<? } else { ?>
-				<div class="logout-btns row clearfix">
+				<div class="form-btns row clearfix">
 					<a href="login.php?action=logout" class="column half">
 						<input type="button" class="secondary-submit column full" value="Log out">
 					</a>

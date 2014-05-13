@@ -47,6 +47,7 @@
 	function showForm(){
 		$results['pageTitle'] = "Login";
 		$results['bodyClass'] = "login";
+
 		if (Session::get('user')){
 			$results['errorClass'] = "regular";
 			$results['errorMessage'] = "You are logged in as ".Session::get('user', 'firstname').' '.Session::get('user', 'lastname');
@@ -56,6 +57,7 @@
 			$results['errorClass'] = "error";
 			$results['errorMessage'] = "Wrong username or password!";
 		}
+		
 		require(TEMPLATE_PATH . "/loginForm.php");
 	} 
 ?>		

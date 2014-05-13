@@ -51,6 +51,8 @@ class User {
 					'email' 	=> $result->email,
 					'usertype' 	=> $result->usertype
 				));
+
+				Session::set('dog', 'pig');
 				$success = true;
 			}
 

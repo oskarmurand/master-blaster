@@ -60,7 +60,7 @@ html {
 
 body {
 	background: #FFF;
-    background-repeat:repeat-x;
+    background-repeat: repeat-x;
 	font-family: 'Open Sans', sans-serif;
 	min-height: 100%;
 }
@@ -80,6 +80,11 @@ Borders and padding are drawn inside the set width of the content.
 	box-sizing: border-box;
 	text-rendering: optimizeLegibility;
 }
+
+a:link {color:#FF0000;}      /* unvisited link */
+a:visited {color:#00FF00;}   /* visited link */
+a:hover {color:#FF00FF;}     /* mouse over link */
+a:active {color:#0000FF;}    /* selected link */
 
 h1, h2, h3, 
 h4, h5, h6 {
@@ -311,14 +316,22 @@ body.login {
 	background-size: cover;
 	position: relative;
 }
+
+body.login form.login a{
+	text-decoration: none;
+}
+
 .login-page-container {
 	width: 50%;
-	max-width: 350px;
 	height: 50%;
 	overflow: auto;
 	margin: auto;
 	position: absolute;
 	top: 0; left: 0; bottom: 0; right: 0;
+	width: 60%;
+	height: 60%;
+	min-width: 200px;
+	max-width: 400px;
 }
 
 .login-page-box {
@@ -332,6 +345,7 @@ body.login {
 .login-logo img {
 	display: block;
 	margin: 0 auto 1em;
+	width: 100%;
 }
 
 form.login .input {
@@ -390,4 +404,17 @@ form.login div.input label {
   margin-right: -100%;
   bottom: 2px;
   border-radius: 0 10px 10px 0;
+}
+
+@media screen and (max-width: 860px) {
+	.login-page-container {
+		width: 100%;
+		height: auto;
+		padding: 2em 1em;
+	}
+
+	body.login .primary-submit,
+	body.login .secondary-submit {
+		margin-top: 1em;
+	}
 }

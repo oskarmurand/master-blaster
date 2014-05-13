@@ -10,7 +10,7 @@
 	$action = isset($_GET['action']) ? $_GET['action'] : "";
 	switch ($action) {
 	  case 'login':
-	    login();
+	    
 	    break;
 	  default:
 	    homepage();
