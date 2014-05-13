@@ -47,6 +47,10 @@
 	function showForm(){
 		$results['pageTitle'] = "Login";
 		$results['bodyClass'] = "login";
+		if (Session::get('user')){
+			$results['errorClass'] = "regular";
+			$results['errorMessage'] = "You are logged in as ".Session::get('user', 'firstname').' '.Session::get('user', 'lastname');
+		}
 
 		if ($_GET['action'] == "nopw") {
 			$results['errorClass'] = "error";
