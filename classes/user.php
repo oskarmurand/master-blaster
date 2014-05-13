@@ -35,7 +35,7 @@ class User {
 			$con = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
 			$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$con->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
-			$sql = "SELECT * FROM fb_users WHERE username = :username AND password = :password LIMIT 1";
+			$sql = "SELECT *, fb_usertype.type AS usertype FROM fb_users LEFT JOIN fb_usertype ON fb_users.usertype = fb_usertype.id WHERE username = :username AND password = :password LIMIT 1";
 			$stmt = $con->prepare($sql);
 			$stmt->bindValue("username", $this->username, PDO::PARAM_STR);
 			$stmt->bindValue("password", hash("sha256", $this->password . $this->salt), PDO::PARAM_STR);
@@ -49,10 +49,9 @@ class User {
 					'firstname' => $result->firstname,
 					'lastname' 	=> $result->lastname,
 					'email' 	=> $result->email,
-					'usertype' 	=> $result->usertype
+					'usertype'	=> $result->usertype
 				));
 
-				Session::set('dog', 'pig');
 				$success = true;
 			}
 

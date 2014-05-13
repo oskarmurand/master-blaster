@@ -14,4 +14,5 @@ define("BASE_URL", $_SERVER['SERVER_NAME'].'/fep');
 define("FULL_URL", BASE_URL.QUERY_STRING);
 require_once(CLASS_PATH . "/user.php");
 require_once(CLASS_PATH . "/session.php");
+require_once(CLASS_PATH . "/PHPMailerAutoload.php");
 ?>

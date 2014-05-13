@@ -81,10 +81,8 @@ Borders and padding are drawn inside the set width of the content.
 	text-rendering: optimizeLegibility;
 }
 
-a:link {color:#FF0000;}      /* unvisited link */
-a:visited {color:#00FF00;}   /* visited link */
-a:hover {color:#FF00FF;}     /* mouse over link */
-a:active {color:#0000FF;}    /* selected link */
+a:link { color: #0000EE; }
+a:visited { color: #551A8B; }
 
 h1, h2, h3, 
 h4, h5, h6 {
@@ -284,8 +282,29 @@ GRID for responsive web. Made by Adam Kaplan. Source: http://www.adamkaplan.me/g
 	}
 }
 /********************************/
-/*	GLOBAL CLASSES
+/*	MENU
 /********************************/
+ul.menu {
+	list-style: none;
+}
+
+ul.menu li {
+	float: left;
+	margin-right: .7em;
+}
+/********************************/
+/*	GLOBAL CLASSES AND IDs
+/********************************/
+#wrapper {
+	max-width: 1100px;
+	width: 95%;
+	margin: 0 auto;
+}
+
+#page-container {
+	margin: 1em 0;
+}
+
 p.center {
 	display: block;
 	text-align: center;
@@ -306,6 +325,14 @@ p.warning_message {
 p.regular_message {
 	color: #282828;
 }
+
+/********************************/
+/*	CONTROL-PANEL
+/********************************/
+#control-panel h3 {
+	color: #FFF;
+}
+
 /********************************/
 /*	LOGIN-PAGE
 /********************************/
@@ -317,20 +344,20 @@ body.login {
 	position: relative;
 }
 
-body.login form.login a{
+body.login .form-btns a{
 	text-decoration: none;
 }
 
 .login-page-container {
 	width: 50%;
 	height: 50%;
-	overflow: auto;
+	overflow: visible;
 	margin: auto;
 	position: absolute;
 	top: 0; left: 0; bottom: 0; right: 0;
 	width: 60%;
 	height: 60%;
-	min-width: 200px;
+	min-width: 150px;
 	max-width: 400px;
 }
 
@@ -416,5 +443,11 @@ form.login div.input label {
 	body.login .primary-submit,
 	body.login .secondary-submit {
 		margin-top: 1em;
+	}
+}
+
+@media screen and (max-width: 340px) {
+	form.login div.input input:focus + label {
+		display: none;
 	}
 }

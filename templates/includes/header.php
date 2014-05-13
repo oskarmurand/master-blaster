@@ -6,6 +6,11 @@
 	<title><?=htmlspecialchars($results['pageTitle'])?></title>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
 	<link href='css/style.css' rel="stylesheet">
-	<link href='js/scriptcore.js'>
+	<script src='js/scriptcore.js'></script>
+
+	<!--[if lt IE 9]>
+  		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+  		<script src="http://html5shiv-printshiv.googlecode.com/svn/trunk/html5shiv-printshiv.js"></script>
+  	<![endif]-->
 </head>
 <body class="<?=$results['bodyClass']?>">

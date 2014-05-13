@@ -3,7 +3,7 @@
 		<div class="login-page-box" class="row clearfix">
 			<div class="login-logo row clearfix">
 				<a href="http://<?=BASE_URL?>/">
-					<img src="images/logo.png" alt="Logo description">
+					<img src="images/logo.svg" alt="Logo description" onerror="this.onerror=null; this.src='images/logo.png'">
 				</a>
 			</div>
 			
@@ -11,7 +11,8 @@
 			<? if ( (!empty($results['errorClass'])) && (!empty($results['errorMessage'])) ) { ?>
 				<p class="<?=$results['errorClass'] ?>_message center"><?=$results['errorMessage']?></p>
 			<? } ?>
-
+			
+			<?//=Session::display()?>
 
 			<? if (!Session::get('user')){ ?>
 				<form id="front-page-login" class="login" action="?action=login" method="post">

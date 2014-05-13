@@ -28,6 +28,23 @@ class Session {
 		return false;
 	}
 
+	public static function isAdmin(){
+		if($_SESSION['user']['usertype'] == 'admin'){
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public static function getUsername(){
+		if($_SESSION['user']['username']){
+			return $_SESSION['user']['username'];
+		} else {
+			return false;
+		}
+	}
+
+
 	public static function display(){
 		echo '<pre>';
 		print_r($_SESSION);
